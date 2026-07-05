@@ -1,0 +1,332 @@
+/* Container Frame Blueprint Layout */
+.track-container {
+  background-color: #080d16;
+  color: #ffffff;
+  padding: 40px 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.header-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 680px;
+  margin-bottom: 25px;
+}
+
+.brand-title h2 {
+  margin: 0 0 4px 0;
+  color: #00b0ff;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+}
+
+.brand-title small {
+  color: #a0aec0;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+kbd {
+  background: #2d3748;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid #4a5568;
+  font-size: 12px;
+  color: #fff;
+}
+
+.launch-btn {
+  background: #1a202c;
+  border: 1px solid #4a5568;
+  color: #a0aec0;
+  padding: 12px 24px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.launch-btn.ready {
+  background: linear-gradient(135deg, #0066ff, #00d2ff);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+}
+
+/* ================= LARGE TRACK CIRCLE GEOMETRY ================= */
+.track-wrapper {
+  position: relative;
+  width: 480px;  /* Enlarged circuit footprint width */
+  height: 480px; /* Enlarged circuit footprint height */
+  margin: 20px 0;
+}
+
+.circular-track {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #101520;
+  border: 32px solid #1f2532; /* Expanded width asphalt track layout path boundary */
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.85), 0 0 50px rgba(0, 176, 255, 0.04);
+}
+
+.finish-line {
+  position: absolute;
+  top: -32px; /* Flushed boundary positioning directly centered across track ring thickness */
+  left: calc(50% - 15px);
+  width: 30px;
+  height: 32px;
+  background-image: linear-gradient(45deg, #fff 25%, transparent 25%), 
+                    linear-gradient(-45deg, #fff 25%, transparent 25%), 
+                    linear-gradient(45deg, transparent 75%, #fff 75%), 
+                    linear-gradient(-45deg, transparent 75%, #fff 75%);
+  background-size: 8px 8px;
+  background-position: 0 0, 0 4px, 4px -4px, -4px 0px;
+  z-index: 10;
+}
+
+/* Central telemetry status display frame */
+.inner-dashboard {
+  width: 200px;
+  height: 200px;
+  background-color: #041411;
+  border: 6px solid #10b981;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.15);
+}
+
+.lap-label {
+  font-size: 11px;
+  color: #10b981;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.lap-number {
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1;
+  margin-top: 5px;
+}
+
+.total-laps {
+  font-size: 24px;
+  color: #3e4e5e;
+}
+
+/* ================= TRACK RADIAL ANGULAR CAR ROUTING ================= */
+.car-orbit-slot {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  transform-origin: center center;
+}
+
+.car {
+  position: absolute;
+  /* Aligns the vehicle perfectly flat centered over the 32px dark asphalt track path */
+  top: -24px; 
+  left: calc(50% - 22px);
+  width: 44px; 
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  /* Visual orientation is left un-rotated exactly as requested */
+}
+
+.vector-car-graphic {
+  width: 100%;
+  height: 100%;
+}
+
+/* ================= EXHAUST NITRO FIRE SIMULATION PARTICLES ================= */
+.nitro-fire-container {
+  position: absolute;
+  top: 11px; 
+  left: -24px; 
+  display: flex;
+  align-items: center;
+  transform: rotate(180deg);
+}
+
+.flame {
+  position: absolute;
+  border-radius: 50% 0 50% 50%;
+  transform: rotate(-45deg);
+}
+
+.flame-core {
+  width: 14px;
+  height: 14px;
+  background-color: #ffffff;
+  box-shadow: 0 0 12px #00f0ff, 0 0 25px #00f0ff;
+  animation: flameJitter 0.05s infinite alternate;
+}
+
+.flame-outer {
+  width: 26px;
+  height: 26px;
+  background-color: #0077ff;
+  opacity: 0.85;
+  box-shadow: 0 0 18px #0044ff;
+  margin-left: -6px;
+  animation: flameJitter 0.08s infinite alternate-reverse;
+}
+
+.flame-burst {
+  width: 44px;
+  height: 16px;
+  background: linear-gradient(90deg, #ff0055, transparent);
+  margin-left: -14px;
+  border-radius: 4px;
+  animation: burstPulse 0.09s infinite ease-in-out;
+}
+
+@keyframes flameJitter {
+  0% { transform: rotate(-45deg) scale(0.85) translate(1px, 1px); }
+  100% { transform: rotate(-42deg) scale(1.3) translate(-1px, 0px); }
+}
+
+@keyframes burstPulse {
+  0%, 100% { width: 24px; opacity: 0.4; }
+  50% { width: 52px; opacity: 1; filter: blur(0.5px); }
+}
+
+/* ================= TOUCH INPUT DISPLAY MODULES ================= */
+.mobile-action-controls {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  max-width: 680px;
+  margin-top: 15px;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: opacity 0.15s ease;
+}
+
+.action-btn:active {
+  opacity: 0.8;
+}
+
+.drive-action {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+}
+
+.brake-action {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.3);
+}
+
+/* Control Station Panel Dock */
+.bottom-dashboard {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 680px;
+}
+
+.velocity-display {
+  background-color: #0f1420;
+  border: 1px solid #1e2638;
+  padding: 15px 20px;
+  border-radius: 12px;
+  flex: 0.4;
+}
+
+.velocity-display .label {
+  display: block;
+  font-size: 11px;
+  color: #4b5970;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.velocity-display .value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #10b981;
+}
+
+.nitro-toggle-btn {
+  background-color: #161c2a;
+  border: 1px solid #28334e;
+  color: #94a3b8;
+  flex: 0.6;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.nitro-toggle-btn.nitro-engaged {
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 0 25px rgba(249, 115, 22, 0.45);
+}
+
+.credits-text {
+  margin-top: 40px;
+  text-align: center;
+  color: #3b485c;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+
+.credits-text span {
+  color: #00a2ff;
+  font-weight: 600;
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 520px) {
+  .track-wrapper {
+    width: 320px;
+    height: 320px;
+  }
+  .inner-dashboard {
+    width: 140px;
+    height: 140px;
+  }
+  .lap-number {
+    font-size: 44px;
+  }
+}
