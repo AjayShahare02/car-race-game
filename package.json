@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "homepage": "https://AjayShahare02.github.io/car-race-game",
+  "homepage": "https://AjayShahare02.github.io/two_car-race-game",
   "scripts": {
+    "dev": "rsbuild dev --open",
     "build": "rsbuild build",
-    "dev": "rsbuild --open",
     "preview": "rsbuild preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
